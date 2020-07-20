@@ -11,6 +11,13 @@ import java.util.UUID;
 
 /**
  * Class untuk menyediakan API
+ * @RequestMapping : Request ke HTTTP
+ * @RestController : untuk menginisialisasi rest
+ * @Autowired : Dependency Injection
+ * @RequestBody : Untuk menmpung request
+ * @ResponeBody : untuk menampilkan respon
+ * @PathVariable : Bagian dari pemetaan URI dapat diikat ke variable melalui anotasi ini eg. http://localhost:8080/api/v1/students/71b8f282-3c3a-4625-8b73-517d8515c82b
+ * @RequestParam : Untuk pemetaan parameter URL dengan mudah eg. http://localhost:8080/api/v1/students/studentId/?id=263fe96f-a7a3-49ba-ad53-2e440a0219cc
  */
 @RestController
 @RequestMapping("api/v1/students")
@@ -23,27 +30,32 @@ public class StudentResource {
         this.studentService = studentService;
     }
 
-    @RequestMapping(method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+//    @RequestMapping(method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping
     public List<Student> getAllStudents() {
         return studentService.getAllStudent();
     }
 
-    @RequestMapping(method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
+//    @RequestMapping(method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping
     public void insertStudent(@RequestBody Student student) {
         studentService.insertNewStudent(UUID.randomUUID(), student);
     }
 
-    @RequestMapping(method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE, path = "{studentId}")
-    public Student getStudentbyId(@PathVariable("studentId") UUID studentId){
+//    @RequestMapping(method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE, path = "{studentId}")
+    @GetMapping("/studentId")
+    public Student getStudentbyId(@RequestParam("id") UUID studentId){
         return studentService.selectStudentById(studentId);
     }
 
-    @RequestMapping(method = RequestMethod.DELETE,path = "{studentId}")
+//    @RequestMapping(method = RequestMethod.DELETE,path = "{studentId}")
+    @DeleteMapping("/{studentId}")
     public void deleteStudentById(@PathVariable("studentId") UUID studentId){
         studentService.deleteStudentById(studentId);
     }
 
-    @RequestMapping(method = RequestMethod.PUT, consumes = MediaType.APPLICATION_JSON_VALUE,path = "{studentId}")
+//    @RequestMapping(method = RequestMethod.PUT, consumes = MediaType.APPLICATION_JSON_VALUE,path = "{studentId}")
+    @PutMapping("/{studentId}")
     public void updateStudent(@PathVariable("studentId") UUID studentId, @RequestBody Student student){
         studentService.updateStudentById(studentId, student);
     }
