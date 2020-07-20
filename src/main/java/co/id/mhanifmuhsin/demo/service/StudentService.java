@@ -9,6 +9,9 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.UUID;
 
+/**
+ * Merupakan class yang berfungsi sebagai penyedia layanan yang nanti akan menggambil fungsi akses data dari DAO
+ */
 @Service
 public class StudentService {
     private final StudentDao studentDao;

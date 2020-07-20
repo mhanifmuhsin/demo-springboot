@@ -4,6 +4,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.UUID;
 
+/**
+ * Ini merupakan model yang menggambarkan object dari Student
+ */
 public class Student {
     private UUID id;
     private final Integer age;
@@ -11,6 +14,14 @@ public class Student {
     private final String lastName;
     private final String course;
 
+    /**
+     * @JsonProperty berfungsi untuk meng-custom value key dalam JSON
+     * @param id
+     * @param age
+     * @param firstName
+     * @param lastName
+     * @param course
+     */
     public Student(@JsonProperty("id") UUID id, @JsonProperty("age") Integer age,
                    @JsonProperty("first_name") String firstName,
                    @JsonProperty("last_name") String lastName,

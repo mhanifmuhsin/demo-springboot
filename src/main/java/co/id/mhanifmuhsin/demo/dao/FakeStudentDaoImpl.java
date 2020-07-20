@@ -5,6 +5,10 @@ import org.springframework.stereotype.Repository;
 
 import java.util.*;
 
+/**
+ * Merupakan implementasi dari interface StudentDao, yang berfungsi sebagai tempat untuk menyimpan codingan akses
+ * data
+ */
 @Repository("fakeDao")
 public class FakeStudentDaoImpl implements StudentDao {
     private final Map<UUID, Student> database;
