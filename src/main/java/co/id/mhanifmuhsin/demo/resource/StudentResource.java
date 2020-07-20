@@ -17,7 +17,11 @@ import java.util.UUID;
  * @RequestBody : Untuk menmpung request
  * @ResponeBody : untuk menampilkan respon
  * @PathVariable : Bagian dari pemetaan URI dapat diikat ke variable melalui anotasi ini eg. http://localhost:8080/api/v1/students/71b8f282-3c3a-4625-8b73-517d8515c82b
- * @RequestParam : Untuk pemetaan parameter URL dengan mudah eg. http://localhost:8080/api/v1/students/studentId/?id=263fe96f-a7a3-49ba-ad53-2e440a0219cc
+ * @Get Mapping and @RequestParam : Untuk pemetaan parameter URL dengan mudah eg.
+ * http://localhost:8080/api/v1/students/studentId/?id=263fe96f-a7a3-49ba-ad53-2e440a0219cc
+ * @DeleteMapping : Request delete eg. http://localhost:8080/api/v1/students/416bb370-6ccf-4008-9bfc-7f71f24ef9b8
+ * @GetMapping : Request mengambil data e.g http://localhost:8080/api/v1/students
+ * @PutMapping : Update data eg. http://localhost:8080/api/v1/students
  */
 @RestController
 @RequestMapping("api/v1/students")
